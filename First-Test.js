@@ -6,8 +6,11 @@ var assert = require('assert');
 var By = $driver.By;
 $browser.manage();
 
+var wait = function(s){
+  return $browser.sleep(s * 1000);
+};
 
 
-$browser.get('https://www.google.com/')
-
-$browser.quit();
+$browser.get('https://www.google.com/').then(function(){
+  return wait(3);
+});
